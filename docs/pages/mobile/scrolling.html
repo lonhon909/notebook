@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <style>
+    *{margin: 0;padding: 0;}
+    html,body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      /* overflow-x: hidden; */
+    }
+    .container {
+      flex: 1;
+      /* height: 100%; */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+    .nav {
+      width: 50px;
+      height: 50px;
+      background-color: coral;
+      position: fixed;
+      top: 200px;
+      left: 0;
+    }
+    .nav2 {
+      left: 100px;
+    }
+    /* .list {
+      min-height: calc(100% + 1px);
+    } */
+    .list li{
+      /* height: 50px; */
+      text-align: center;
+      line-height: 100px;
+    }
+    .list li:nth-child(2n) {
+      background-color: rgba(222, 184, 135, 0.2);
+    }
+    .header {
+      height: 50px;
+      background-color: red;
+    }
+    .footer {
+      height: 50px;
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="container">
+    <ul class="list" v-show="show">
+      <li v-for="item in lnum" :key="item">{{ item }}</li>
+    </ul>
+    <input type="text">
+  </div>
+  <div class="nav"></div>
+  <div class="footer"></div>
+
+  <script>
+    const vm = new Vue({
+      el: '.container',
+      data: {
+        lnum: 5,
+        show: false
+      },
+      mounted() {
+        setTimeout(() => {
+          this.show = true
+        }, 1000);
+      },
+    })
+  </script>
+
+  <script>
+    // const scrollContainer = document.querySelector('.container>.list');
+    // const fragment = document.createDocumentFragment();
+    // setTimeout(() => {
+    //   const li = document.createElement('li');
+    //   // li.textContent = 0;
+    //   for (let i = 0; i < 50; i++) {
+    //     const temp = li.cloneNode()
+    //     temp.textContent = i;
+    //     fragment.appendChild(temp)
+    //   }
+    //   scrollContainer.appendChild(fragment)
+    // }, 5000)
+  </script>
+</body>
+</html>
