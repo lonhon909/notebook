@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" id="data" />
+    <input type="button" value='新增' class="btn" />
+  </div>
+  <script>
+    const dataNode = document.getElementById('data');
+    const bodyNode = document.querySelector('body');
+    const search = window.location.search.substr(1).split('&')[0].split('=')[1];
+
+    document.querySelector('.btn').addEventListener('click', () => {
+      const aaa = document.createElement('a');
+      // const a = decodeURI(search);
+      // console.log(a)
+      aaa.innerHTML = 'dataNode.value';
+      aaa.setAttribute('href', dataNode.value)
+      bodyNode.appendChild(aaa)
+      // dataNode.value = null
+    })
+  </script>
+</body>
+</html>
